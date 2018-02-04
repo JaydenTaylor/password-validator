@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class ValidatorUnitTest {
     @Test
     public void validateTooShort() throws Exception {
-        assertEquals(false, Validator.validate("short"));
+        assertEquals(false, Validator.validate("short1"));
     }
 
     @Test
@@ -26,8 +26,23 @@ public class ValidatorUnitTest {
     }
 
     @Test
+    public void validateNoCaps() throws Exception {
+        assertEquals(false, Validator.validate("nocapspassword1!"));
+    }
+
+    @Test
+    public void validateNoDigit() throws Exception {
+        assertEquals(false, Validator.validate("NoDigitsPassword!"));
+    }
+
+    @Test
+    public void validateAllCaps() throws Exception {
+        assertEquals(false, Validator.validate("ALLCAPSPASS223"));
+    }
+
+    @Test
     public void validatePass() throws Exception {
-        assertEquals(true, Validator.validate("testpass"));
+        assertEquals(true, Validator.validate("Testpass12!"));
     }
 
 }
