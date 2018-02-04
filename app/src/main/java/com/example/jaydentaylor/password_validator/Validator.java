@@ -10,4 +10,10 @@ public class Validator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validator);
     }
+
+    public static boolean validate(String s) {
+        if(s.length() < 8 || s.equalsIgnoreCase("password"))
+            return false;
+        return true;
+    }
 }
